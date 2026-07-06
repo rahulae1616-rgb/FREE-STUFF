@@ -1208,6 +1208,8 @@ def _interactive_mode(ydl, urls):
             ydl.download([url])
             continue
 
+        formats.append({'format_id': 'mp3', 'ext': 'mp3', 'format_note': 'MP3 Audio', 'vcodec': 'none', 'acodec': 'mp3', 'resolution': 'audio only', 'filesize': 0})
+
         print(f'\n  {"#":>4s}  {"ID":8s}  {"EXT":4s}  {"QUALITY":30s}  {"TYPE":6s}  {"SIZE":8s}')
         print('  ' + '-' * 70)
         for i, fmt in enumerate(formats):
@@ -1239,7 +1241,11 @@ def _interactive_mode(ydl, urls):
             except (ValueError, IndexError):
                 print('Enter a valid number')
 
-        ydl.params['format'] = selected_id or 'bestvideo+bestaudio/best'
+        if selected_id == 'mp3':
+            ydl.params['format'] = 'bestaudio/best'
+            ydl.params['postprocessors'] = [{'key': 'FFmpegExtractAudio', 'preferredcodec': 'mp3', 'preferredquality': '192'}]
+        else:
+            ydl.params['format'] = selected_id or 'bestvideo+bestaudio/best'
         ydl.params['outtmpl']['default'] = os.path.join(download_path, '%(title)s.%(ext)s')
         try:
             ydl.download([url])
