@@ -583,7 +583,7 @@ class Updater:
         # sys.orig_argv can be [] when frozen
         if not argv and getattr(sys, 'frozen', False):
             argv = sys.argv
-        # linux_static exe's argv[0] will be /tmp/staticx-NNNN/yt-dlp_linux if we don't fixup here
+        # linux_static exe's argv[0] will be /tmp/staticx-NNNN/freestuff_linux if we don't fixup here
         if argv and os.getenv('STATICX_PROG_PATH'):
             argv = [self.filename, *argv[1:]]
         return argv

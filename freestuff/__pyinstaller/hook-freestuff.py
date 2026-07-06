@@ -31,7 +31,7 @@ def get_hidden_imports():
 hiddenimports = list(get_hidden_imports())
 print(f'Adding imports: {hiddenimports}')
 
-excludedimports = ['youtube_dl', 'youtube_dlc', 'test', 'ytdlp_plugins', 'devscripts', 'bundle']
+excludedimports = ['youtube_dl', 'youtube_dlc', 'test', 'freestuff_plugins', 'devscripts', 'bundle']
 
 datas = collect_data_files('curl_cffi', includes=['cacert.pem'])
 datas += collect_data_files('freestuff_ejs', includes=['**/*.js'])

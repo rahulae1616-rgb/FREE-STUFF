@@ -41,8 +41,8 @@ jobs:
         shell: bash
         run: |
           relevant_files=(
-            "yt_dlp/*.py"
-            ':!yt_dlp/version.py'
+            "freestuff/*.py"
+            ':!freestuff/version.py'
             "bundle/*.py"
             "bundle/docker/compose.yml"
             "bundle/docker/linux/*"

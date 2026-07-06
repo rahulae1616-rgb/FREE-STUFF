@@ -30,7 +30,7 @@ clean-test:
 	test/testdata/sigs/player-*.js test/testdata/thumbnails/empty.webp "test/testdata/thumbnails/foo %d bar/foo_%d."*
 clean-dist:
 	rm -rf freestuff.1.temp.md freestuff.1 README.txt MANIFEST build/ dist/ .coverage cover/ freestuff.tar.gz completions/ \
-	yt_dlp/extractor/lazy_extractors.py *.spec freestuff freestuff.exe yt_dlp.egg-info/ AUTHORS \
+	freestuff/extractor/lazy_extractors.py *.spec freestuff freestuff.exe freestuff.egg-info/ AUTHORS \
 	freestuff.zip .ejs-* yt_dlp_ejs/
 clean-cache:
 	find . \( \
@@ -40,7 +40,7 @@ clean-cache:
 completion-bash: completions/bash/freestuff
 completion-fish: completions/fish/freestuff.fish
 completion-zsh: completions/zsh/_freestuff
-lazy-extractors: yt_dlp/extractor/lazy_extractors.py
+lazy-extractors: freestuff/extractor/lazy_extractors.py
 
 PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
@@ -87,7 +87,7 @@ test:
 offlinetest: codetest
 	$(PYTHON) -m pytest -Werror -m "not download"
 
-PY_CODE_FOLDERS_CMD = find yt_dlp -type f -name '__init__.py' | sed 's|/__init__\.py||' | grep -v '/__' | sort
+PY_CODE_FOLDERS_CMD = find freestuff -type f -name '__init__.py' | sed 's|/__init__\.py||' | grep -v '/__' | sort
 PY_CODE_FOLDERS != $(PY_CODE_FOLDERS_CMD)
 PY_CODE_FOLDERS ?= $(shell $(PY_CODE_FOLDERS_CMD))
 
@@ -95,7 +95,7 @@ PY_CODE_FILES_CMD = for f in $(PY_CODE_FOLDERS) ; do echo "$$f" | sed 's|$$|/*.p
 PY_CODE_FILES != $(PY_CODE_FILES_CMD)
 PY_CODE_FILES ?= $(shell $(PY_CODE_FILES_CMD))
 
-JS_CODE_FOLDERS_CMD = find yt_dlp -type f -name '*.js' | sed 's|/[^/]\{1,\}\.js$$||' | uniq
+JS_CODE_FOLDERS_CMD = find freestuff -type f -name '*.js' | sed 's|/[^/]\{1,\}\.js$$||' | uniq
 JS_CODE_FOLDERS != $(JS_CODE_FOLDERS_CMD)
 JS_CODE_FOLDERS ?= $(shell $(JS_CODE_FOLDERS_CMD))
 
@@ -114,13 +114,13 @@ freestuff.zip: $(PY_CODE_FILES) $(JS_CODE_FILES)
 	  cp -pPR $$d/*.js zip/$$d/ ;\
 	done
 	(cd zip && touch -t 200001010101 $(PY_CODE_FILES) $(JS_CODE_FILES))
-	rm -f zip/yt_dlp/__main__.py
+	rm -f zip/freestuff/__main__.py
 	(cd zip && zip -q ../freestuff.zip $(PY_CODE_FILES) $(JS_CODE_FILES))
 	rm -rf zip
 
 freestuff: freestuff.zip
 	mkdir -p zip
-	cp -pP yt_dlp/__main__.py zip/
+	cp -pP freestuff/__main__.py zip/
 	touch -t 200001010101 zip/__main__.py
 	(cd zip && zip -q ../freestuff.zip __main__.py)
 	echo '#!$(PYTHON)' > freestuff
@@ -130,9 +130,9 @@ freestuff: freestuff.zip
 	rm -rf zip
 
 README.md: $(PY_CODE_FILES) devscripts/make_readme.py
-	COLUMNS=80 $(PYTHON) yt_dlp/__main__.py --ignore-config --help | $(PYTHON) devscripts/make_readme.py
+	COLUMNS=80 $(PYTHON) freestuff/__main__.py --ignore-config --help | $(PYTHON) devscripts/make_readme.py
 
-issuetemplates: devscripts/make_issue_template.py .github/ISSUE_TEMPLATE_tmpl/1_broken_site.yml .github/ISSUE_TEMPLATE_tmpl/2_site_support_request.yml .github/ISSUE_TEMPLATE_tmpl/3_site_feature_request.yml .github/ISSUE_TEMPLATE_tmpl/4_bug_report.yml .github/ISSUE_TEMPLATE_tmpl/5_feature_request.yml yt_dlp/version.py
+issuetemplates: devscripts/make_issue_template.py .github/ISSUE_TEMPLATE_tmpl/1_broken_site.yml .github/ISSUE_TEMPLATE_tmpl/2_site_support_request.yml .github/ISSUE_TEMPLATE_tmpl/3_site_feature_request.yml .github/ISSUE_TEMPLATE_tmpl/4_bug_report.yml .github/ISSUE_TEMPLATE_tmpl/5_feature_request.yml freestuff/version.py
 	$(PYTHON) devscripts/make_issue_template.py .github/ISSUE_TEMPLATE_tmpl/1_broken_site.yml .github/ISSUE_TEMPLATE/1_broken_site.yml
 	$(PYTHON) devscripts/make_issue_template.py .github/ISSUE_TEMPLATE_tmpl/2_site_support_request.yml .github/ISSUE_TEMPLATE/2_site_support_request.yml
 	$(PYTHON) devscripts/make_issue_template.py .github/ISSUE_TEMPLATE_tmpl/3_site_feature_request.yml .github/ISSUE_TEMPLATE/3_site_feature_request.yml
@@ -163,10 +163,10 @@ completions/fish/freestuff.fish: $(PY_CODE_FILES) devscripts/fish-completion.in
 	mkdir -p completions/fish
 	$(PYTHON) devscripts/fish-completion.py
 
-_EXTRACTOR_FILES_CMD = find yt_dlp/extractor -name '*.py' -and -not -name 'lazy_extractors.py'
+_EXTRACTOR_FILES_CMD = find freestuff/extractor -name '*.py' -and -not -name 'lazy_extractors.py'
 _EXTRACTOR_FILES != $(_EXTRACTOR_FILES_CMD)
 _EXTRACTOR_FILES ?= $(shell $(_EXTRACTOR_FILES_CMD))
-yt_dlp/extractor/lazy_extractors.py: devscripts/make_lazy_extractors.py devscripts/lazy_load_template.py $(_EXTRACTOR_FILES)
+freestuff/extractor/lazy_extractors.py: devscripts/make_lazy_extractors.py devscripts/lazy_load_template.py $(_EXTRACTOR_FILES)
 	$(PYTHON) devscripts/make_lazy_extractors.py $@
 
 freestuff.tar.gz: all
@@ -183,7 +183,7 @@ freestuff.tar.gz: all
 		README.md supportedsites.md Changelog.md LICENSE \
 		CONTRIBUTING.md Maintainers.md CONTRIBUTORS AUTHORS \
 		Makefile freestuff.1 README.txt completions .gitignore \
-		freestuff yt_dlp pyproject.toml devscripts test
+		freestuff pyproject.toml devscripts test
 
 AUTHORS: Changelog.md
 	@if [ -d '.git' ] && command -v git > /dev/null ; then \
@@ -219,7 +219,7 @@ freestuff-extra: current-ejs-version .ejs-$(EJS_VERSION) $(EJS_PY_FILES) $(EJS_J
 	done
 	(cd zip && touch -t 200001010101 $(EJS_PY_FILES) $(EJS_JS_FILES))
 	(cd zip && zip -q ../freestuff.zip $(EJS_PY_FILES) $(EJS_JS_FILES))
-	cp -pP yt_dlp/__main__.py zip/
+	cp -pP freestuff/__main__.py zip/
 	touch -t 200001010101 zip/__main__.py
 	(cd zip && zip -q ../freestuff.zip __main__.py)
 	echo '#!$(PYTHON)' > freestuff

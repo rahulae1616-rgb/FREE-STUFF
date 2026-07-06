@@ -37,7 +37,7 @@ jobs:
       timeout-minutes: 15
       shell: bash
       run: |
-        python3 -m yt_dlp -v || true
+        python3 -m freestuff -v || true
         python3 ./devscripts/run_tests.py --pytest-args '--reruns 2 --reruns-delay 3.0' core
 
   check:
@@ -66,4 +66,4 @@ jobs:
       run: autopep8 --diff .
     - name: Check file mode
       shell: bash
-      run: git ls-files --format="%(objectmode) %(path)" yt_dlp/ | ( ! grep -v "^100644" )
+      run: git ls-files --format="%(objectmode) %(path)" freestuff/ | ( ! grep -v "^100644" )

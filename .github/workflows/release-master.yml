@@ -4,8 +4,8 @@ on:
     branches:
       - master
     paths:
-      - "yt_dlp/**.py"
-      - "!yt_dlp/version.py"
+      - "freestuff/**.py"
+      - "!freestuff/version.py"
       - "bundle/**"
       - "pyproject.toml"
       - "Makefile"

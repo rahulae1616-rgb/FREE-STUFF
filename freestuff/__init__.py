@@ -1010,8 +1010,11 @@ def _show_banner():
         pass
     banner = _render_banner('FREE STUFF')
     sys.stdout.write('\033[36m' + banner + '\033[0m\n')
-    sys.stdout.flush()
+    sys.stdout.write('\n')
+    sys.stdout.write('\n')
     sys.stdout.write('\033[92m  Developed by RAHUL CHANDRA\033[0m\n')
+    sys.stdout.write('\n')
+    sys.stdout.write('\033[93m  Paste URL: https://github.com/rahulae1616-rgb/FREE-STUFF\033[0m\n')
     sys.stdout.flush()
 
 

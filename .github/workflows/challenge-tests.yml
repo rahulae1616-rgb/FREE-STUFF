@@ -5,19 +5,19 @@ on:
     paths:
       - .github/workflows/challenge-tests.yml
       - test/test_jsc/*.py
-      - yt_dlp/extractor/youtube/jsc/**.js
-      - yt_dlp/extractor/youtube/jsc/**.py
-      - yt_dlp/extractor/youtube/pot/**.py
-      - yt_dlp/utils/_jsruntime.py
+      - freestuff/extractor/youtube/jsc/**.js
+      - freestuff/extractor/youtube/jsc/**.py
+      - freestuff/extractor/youtube/pot/**.py
+      - freestuff/utils/_jsruntime.py
   pull_request:
     branches: ['**']
     paths:
       - .github/workflows/challenge-tests.yml
       - test/test_jsc/*.py
-      - yt_dlp/extractor/youtube/jsc/**.js
-      - yt_dlp/extractor/youtube/jsc/**.py
-      - yt_dlp/extractor/youtube/pot/**.py
-      - yt_dlp/utils/_jsruntime.py
+      - freestuff/extractor/youtube/jsc/**.js
+      - freestuff/extractor/youtube/jsc/**.py
+      - freestuff/extractor/youtube/pot/**.py
+      - freestuff/utils/_jsruntime.py
 
 permissions: {}
 
@@ -86,5 +86,5 @@ jobs:
       timeout-minutes: 15
       shell: bash
       run: |
-        python -m yt_dlp -v --js-runtimes node --js-runtimes bun --js-runtimes quickjs || true
+        python -m freestuff -v --js-runtimes node --js-runtimes bun --js-runtimes quickjs || true
         python ./devscripts/run_tests.py test/test_jsc -k download

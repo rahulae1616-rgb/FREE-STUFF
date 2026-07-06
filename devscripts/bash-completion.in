@@ -1,4 +1,4 @@
-__yt_dlp()
+__freestuff()
 {
     local cur prev opts fileopts diropts keywords
     COMPREPLY=()
@@ -30,4 +30,4 @@ __yt_dlp()
     fi
 }
 
-complete -F __yt_dlp freestuff
+complete -F __freestuff freestuff
