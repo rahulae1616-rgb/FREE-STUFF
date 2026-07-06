@@ -1068,10 +1068,70 @@ def _real_main(argv=None):
                     ydl.report_warning('URLs are ignored due to --load-info-json')
                 return ydl.download_with_info_file(expand_path(opts.load_info_filename))
             else:
+                if opts.format is None and all_urls:
+                    return _interactive_mode(ydl, all_urls)
                 return ydl.download(all_urls)
         except DownloadCancelled:
             ydl.to_screen('Aborting remaining downloads')
             return 101
+
+
+def _interactive_mode(ydl, urls):
+    download_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+    retcode = 0
+    for url in urls:
+        ydl.to_screen(f'\n[FREE STUFF] Processing: {url}')
+        try:
+            info = ydl.extract_info(url, download=False)
+        except Exception as e:
+            ydl.to_screen(f'ERROR: {e}')
+            retcode = 1
+            continue
+
+        formats = info.get('formats', [])
+        if not formats:
+            ydl.to_screen('[FREE STUFF] No format list available, downloading best quality')
+            ydl.params['format'] = 'bestvideo+bestaudio/best'
+            ydl.params['outtmpl'] = {'default': os.path.join(download_path, '%(title)s.%(ext)s')}
+            ydl.download([url])
+            continue
+
+        print(f'\n  {"#":>4s}  {"ID":8s}  {"EXT":4s}  {"QUALITY":30s}  {"TYPE":6s}  {"SIZE":8s}')
+        print('  ' + '-' * 70)
+        for i, fmt in enumerate(formats):
+            note = (fmt.get('format_note') or '').strip()
+            res = fmt.get('resolution') or ''
+            quality = note or res or fmt.get('format', '')
+            ext = fmt.get('ext', '?')
+            vc = fmt.get('vcodec', 'none')
+            ac = fmt.get('acodec', 'none')
+            ftype = 'AUDIO' if vc == 'none' and ac != 'none' else 'VIDEO' if ac == 'none' and vc != 'none' else 'A+V'
+            size = fmt.get('filesize') or fmt.get('filesize_approx') or 0
+            s = f'{size / 1024 / 1024:.1f}MB' if size else '?'
+            print(f'  [{i:3d}]  {fmt["format_id"]:8s}  {ext:4s}  {quality:30s}  {ftype:6s}  {s:>8s}')
+
+        while True:
+            try:
+                choice = input('\nSelect format number (or Enter for best): ').strip()
+                if choice == '':
+                    selected_id = None
+                    break
+                idx = int(choice)
+                if 0 <= idx < len(formats):
+                    selected_id = formats[idx].get('format_id') or formats[idx].get('format', '')
+                    break
+                print(f'Enter 0-{len(formats) - 1}')
+            except (ValueError, IndexError):
+                print('Enter a valid number')
+
+        ydl.params['format'] = selected_id or 'bestvideo+bestaudio/best'
+        ydl.params['outtmpl'] = {'default': os.path.join(download_path, '%(title)s.%(ext)s')}
+        try:
+            ydl.download([url])
+        except Exception as e:
+            ydl.to_screen(f'ERROR: {e}')
+            retcode = 1
+    return retcode
 
 
 def main(argv=None):
