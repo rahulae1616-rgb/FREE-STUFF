@@ -1,4 +1,4 @@
-﻿__version__ = '1.1.16'
+﻿__version__ = '1.1.17'
 
 RELEASE_GIT_HEAD = '0000000000000000000000000000000000000000'
 
@@ -10,4 +10,4 @@ CHANNEL = 'stable'
 
 ORIGIN = 'rahulae1616-rgb/FREE-STUFF'
 
-_pkg_version = '1.1.16'
+_pkg_version = '1.1.17'
