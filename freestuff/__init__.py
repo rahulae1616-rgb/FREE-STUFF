@@ -1038,7 +1038,7 @@ def _auto_update():
             print('  \033[33mAuto-updating...\033[0m')
             try:
                 subprocess.run(
-                    [sys.executable, '-m', 'pip', 'install', '--upgrade', 'FREE--BUFF'],
+                    [sys.executable, '-m', 'pip', 'install', '--upgrade', '--no-cache-dir', 'FREE--BUFF'],
                     check=True, capture_output=True)
                 print('  \033[32mUpdate successful! Restart to use latest version.\033[0m')
                 sys.exit(0)
