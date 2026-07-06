@@ -1,0 +1,14 @@
+.git/
+.gitignore
+.github/
+.NO_AI/
+test/
+devscripts/
+bundle/
+dist/
+*.md
+*.txt
+*.ps1
+*.bat
+*.sh
+Makefile

@@ -612,6 +612,13 @@ def create_parser():
             'Use the specified HTTP/HTTPS/SOCKS proxy. To enable SOCKS proxy, specify a proper scheme, '
             'e.g. socks5://user:pass@127.0.0.1:1080/. Pass in an empty string (--proxy "") for direct connection'))
     network.add_option(
+        '--proxy-list', dest='proxy_list',
+        default=None, metavar='FILE',
+        help=(
+            'File containing a list of proxies, one per line. '
+            'Proxies are rotated per download. Lines starting with # are ignored. '
+            'Overrides --proxy for individual downloads'))
+    network.add_option(
         '--socket-timeout',
         dest='socket_timeout', type=float, default=None, metavar='SECONDS',
         help='Time to wait before giving up, in seconds')
@@ -1461,11 +1468,11 @@ def create_parser():
         action='store_const', dest='overwrites', const=None,
         help='Do not overwrite the video, but overwrite related files (default)')
     filesystem.add_option(
-        '-c', '--continue',
+        '-c', '--continue', '--resume',
         action='store_true', dest='continue_dl', default=True,
         help='Resume partially downloaded files/fragments (default)')
     filesystem.add_option(
-        '--no-continue',
+        '--no-continue', '--no-resume',
         action='store_false', dest='continue_dl',
         help=(
             'Do not resume partially downloaded fragments. '

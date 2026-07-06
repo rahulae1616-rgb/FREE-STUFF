@@ -640,6 +640,16 @@ class YoutubeDL:
         if params is None:
             params = {}
         self.params = params
+        self._proxy_cycle = None
+        proxy_list_path = self.params.get('proxy_list')
+        if proxy_list_path:
+            try:
+                with open(proxy_list_path, encoding='utf-8') as f:
+                    proxies = [l.strip() for l in f if l.strip() and not l.startswith('#')]
+                if proxies:
+                    self._proxy_cycle = itertools.cycle(proxies)
+            except OSError as e:
+                self.report_error(f'Failed to read proxy list: {e}')
         self._ies = {}
         self._ies_instances = {}
         self._pps = {k: [] for k in POSTPROCESS_WHEN}
@@ -2838,6 +2848,9 @@ class YoutubeDL:
     def process_video_result(self, info_dict, download=True):
         assert info_dict.get('_type', 'video') == 'video'
         self._num_videos += 1
+        if self._proxy_cycle:
+            self.params['proxy'] = next(self._proxy_cycle)
+            self.__dict__.pop('proxies', None)
 
         if 'id' not in info_dict:
             raise ExtractorError('Missing "id" field in extractor result', ie=info_dict['extractor'])
