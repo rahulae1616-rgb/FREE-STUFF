@@ -1011,17 +1011,8 @@ def _show_banner():
     banner = _render_banner('FREE STUFF')
     sys.stdout.write('\033[36m' + banner + '\033[0m\n')
     sys.stdout.flush()
-    name = 'RAHUL CHANDRA'
-    label = '  Developed by '
-    for _ in range(12):
-        line = '\r' + label
-        for i, ch in enumerate(name):
-            color = 16 + (int(time.time() * 8) + i * 7) % 240
-            line += f'\033[38;5;{color}m{ch}\033[0m'
-        sys.stdout.write(line)
-        sys.stdout.flush()
-        time.sleep(0.07)
-    sys.stdout.write('\n')
+    sys.stdout.write('\033[92m  Developed by RAHUL CHANDRA\033[0m\n')
+    sys.stdout.flush()
 
 
 def _auto_update():
@@ -1146,9 +1137,10 @@ def _real_main(argv=None):
                         'https://github.com/rahulae1616-rgb/FREE-STUFF#readme'))
                     msvcrt.getch()
                     _exit(2)
-            parser.error(
-                'You must provide at least one URL.\n'
-                'Type freestuff --help to see a list of all options.')
+            url = input('  Paste URL: ').strip()
+            if not url:
+                _exit(0)
+            all_urls = [url]
 
         parser.destroy()
         try:
