@@ -1,0 +1,13 @@
+__version__ = '1.0'
+
+RELEASE_GIT_HEAD = '0000000000000000000000000000000000000000'
+
+VARIANT = None
+
+UPDATE_HINT = None
+
+CHANNEL = 'stable'
+
+ORIGIN = 'rahulae1616-rgb/FREE-STUFF'
+
+_pkg_version = '1.0'
