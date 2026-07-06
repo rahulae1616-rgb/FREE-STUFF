@@ -1076,6 +1076,37 @@ def _real_main(argv=None):
             return 101
 
 
+def _interactive_input(prompt):
+    if os.name == 'nt':
+        import msvcrt
+        sys.stdout.write(prompt)
+        sys.stdout.flush()
+        chars = []
+        while True:
+            ch = msvcrt.getch()
+            if ch == b'\x1b':
+                sys.stdout.write('\n')
+                return '\x1b'
+            elif ch == b'\r':
+                sys.stdout.write('\n')
+                return ''.join(chars)
+            elif ch == b'\x08':
+                if chars:
+                    chars.pop()
+                    sys.stdout.write('\b \b')
+                    sys.stdout.flush()
+            else:
+                try:
+                    decoded = ch.decode()
+                    chars.append(decoded)
+                    sys.stdout.write(decoded)
+                    sys.stdout.flush()
+                except:
+                    pass
+    else:
+        return input(prompt)
+
+
 def _interactive_mode(ydl, urls):
     download_path = os.path.join(os.path.expanduser('~'), 'Downloads')
     retcode = 0
@@ -1111,11 +1142,14 @@ def _interactive_mode(ydl, urls):
             print(f'  [{i:3d}]  {fmt["format_id"]:8s}  {ext:4s}  {quality:30s}  {ftype:6s}  {s:>8s}')
 
         while True:
+            choice = _interactive_input('\nSelect format number (or Enter for best, ESC to exit): ')
+            if choice == '\x1b':
+                print('[FREE STUFF] Aborted by user')
+                return 1
+            if choice == '':
+                selected_id = None
+                break
             try:
-                choice = input('\nSelect format number (or Enter for best): ').strip()
-                if choice == '':
-                    selected_id = None
-                    break
                 idx = int(choice)
                 if 0 <= idx < len(formats):
                     selected_id = formats[idx].get('format_id') or formats[idx].get('format', '')
