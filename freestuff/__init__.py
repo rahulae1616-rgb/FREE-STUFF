@@ -1140,7 +1140,10 @@ def _real_main(argv=None):
                         'https://github.com/rahulae1616-rgb/FREE-STUFF#readme'))
                     msvcrt.getch()
                     _exit(2)
-            url = input('  Paste URL: ').strip()
+            url = _interactive_input('  Paste URL: ')
+            if url == '\x1b':
+                _exit(0)
+            url = url.strip()
             if not url:
                 _exit(0)
             all_urls = [url]
