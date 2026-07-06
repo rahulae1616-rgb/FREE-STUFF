@@ -9,10 +9,14 @@ __license__ = 'The Unlicense'
 import collections
 import getpass
 import itertools
+import json
 import optparse
 import os
 import re
+import subprocess
+import time
 import traceback
+import urllib.request
 
 from .cookies import SUPPORTED_BROWSERS, SUPPORTED_KEYRINGS, CookieLoadError
 from .downloader.external import get_external_downloader
@@ -34,6 +38,7 @@ from .postprocessor import (
     MetadataParserPP,
 )
 from .update import Updater
+from .version import __version__
 from .utils import (
     NO_DEFAULT,
     POSTPROCESS_WHEN,
@@ -961,6 +966,57 @@ def parse_options(argv=None):
     })
 
 
+_BANNER = r'''
+  ########  ######  ########  ########     ########  ########  ##    ##  ########  ########
+  ##       ##    ## ##       ##            ##       ##         ##   ##   ##        ##
+  ######   ########  ######   ######       ######   ######     ####     ######    ######
+  ##       ##    ## ##       ##            ##       ##         ##  ##   ##        ##
+  ##       ##    ## ######## ##            ##       ########   ##   ##  ########  ########
+'''
+
+
+def _show_banner():
+    if os.environ.get('FREESTUFF_NO_BANNER'):
+        return
+    sys.stdout.write('\033[36m' + _BANNER + '\033[0m')
+    sys.stdout.flush()
+    name = 'RAHUL CHANDRA'
+    label = '  Developed by '
+    for _ in range(12):
+        line = '\r' + label
+        for i, ch in enumerate(name):
+            color = 16 + (int(time.time() * 8) + i * 6) % 240
+            line += f'\033[38;5;{color}m{ch}\033[0m'
+        sys.stdout.write(line)
+        sys.stdout.flush()
+        time.sleep(0.07)
+    sys.stdout.write('\n')
+
+
+def _auto_update():
+    try:
+        req = urllib.request.Request(
+            'https://pypi.org/pypi/FREE-BUFF/json',
+            headers={'User-Agent': 'FREE-STUFF/1.0'})
+        with urllib.request.urlopen(req, timeout=5) as r:
+            data = json.loads(r.read())
+        latest = data['info']['version']
+        current = __version__
+        if latest != current:
+            print(f'\n  \033[33mUpdate available: {current} → {latest}\033[0m')
+            print('  \033[33mAuto-updating...\033[0m')
+            try:
+                subprocess.run(
+                    [sys.executable, '-m', 'pip', 'install', '--upgrade', 'FREE--BUFF'],
+                    check=True, capture_output=True)
+                print('  \033[32mUpdate successful! Restart to use latest version.\033[0m')
+                sys.exit(0)
+            except subprocess.CalledProcessError:
+                print('  \033[31mAuto-update failed. Run: pip install --upgrade FREE--BUFF\033[0m')
+    except Exception:
+        pass
+
+
 def _real_main(argv=None):
     setproctitle('freestuff')
 
@@ -1068,6 +1124,8 @@ def _real_main(argv=None):
                     ydl.report_warning('URLs are ignored due to --load-info-json')
                 return ydl.download_with_info_file(expand_path(opts.load_info_filename))
             else:
+                _show_banner()
+                _auto_update()
                 if opts.format is None and all_urls:
                     return _interactive_mode(ydl, all_urls)
                 return ydl.download(all_urls)
