@@ -1021,6 +1021,8 @@ def _real_main(argv=None):
     setproctitle('freestuff')
 
     parser, opts, all_urls, ydl_opts = parse_options(argv)
+    _show_banner()
+    _auto_update()
 
     if print_extractor_information(opts, all_urls):
         return
@@ -1124,8 +1126,6 @@ def _real_main(argv=None):
                     ydl.report_warning('URLs are ignored due to --load-info-json')
                 return ydl.download_with_info_file(expand_path(opts.load_info_filename))
             else:
-                _show_banner()
-                _auto_update()
                 if opts.format is None and all_urls:
                     return _interactive_mode(ydl, all_urls)
                 return ydl.download(all_urls)
