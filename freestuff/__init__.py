@@ -1092,7 +1092,7 @@ def _interactive_mode(ydl, urls):
         if not formats:
             ydl.to_screen('[FREE STUFF] No format list available, downloading best quality')
             ydl.params['format'] = 'bestvideo+bestaudio/best'
-            ydl.params['outtmpl'] = {'default': os.path.join(download_path, '%(title)s.%(ext)s')}
+            ydl.params['outtmpl']['default'] = os.path.join(download_path, '%(title)s.%(ext)s')
             ydl.download([url])
             continue
 
@@ -1125,7 +1125,7 @@ def _interactive_mode(ydl, urls):
                 print('Enter a valid number')
 
         ydl.params['format'] = selected_id or 'bestvideo+bestaudio/best'
-        ydl.params['outtmpl'] = {'default': os.path.join(download_path, '%(title)s.%(ext)s')}
+        ydl.params['outtmpl']['default'] = os.path.join(download_path, '%(title)s.%(ext)s')
         try:
             ydl.download([url])
         except Exception as e:
