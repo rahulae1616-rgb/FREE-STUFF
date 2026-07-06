@@ -966,26 +966,57 @@ def parse_options(argv=None):
     })
 
 
-_BANNER = r'''
-  ########  ######  ########  ########     ########  ########  ##    ##  ########  ########
-  ##       ##    ## ##       ##            ##       ##         ##   ##   ##        ##
-  ######   ########  ######   ######       ######   ######     ####     ######    ######
-  ##       ##    ## ##       ##            ##       ##         ##  ##   ##        ##
-  ##       ##    ## ######## ##            ##       ########   ##   ##  ########  ########
-'''
+_FONT = {
+    'F': [0b11111110, 0b10000000, 0b11111110, 0b10000000, 0b10000000],
+    'R': [0b11111110, 0b10000011, 0b11111110, 0b10011000, 0b10000111],
+    'E': [0b11111111, 0b10000000, 0b11111111, 0b10000000, 0b11111111],
+    'S': [0b11111110, 0b10000000, 0b11111110, 0b00000001, 0b11111110],
+    'T': [0b11111111, 0b00010000, 0b00010000, 0b00010000, 0b00010000],
+    'U': [0b10000001, 0b10000001, 0b10000001, 0b10000001, 0b01111110],
+}
+
+
+def _render_banner(text):
+    lines = [''] * 5
+    for ch in text:
+        if ch == ' ':
+            for i in range(5):
+                lines[i] += '    '
+        else:
+            bits = _FONT[ch]
+            for i, mask in enumerate(bits):
+                for bit in range(8):
+                    lines[i] += '\u2588' if mask & (1 << (7 - bit)) else ' '
+                lines[i] += '  '
+    return '\n'.join(lines)
 
 
 def _show_banner():
     if os.environ.get('FREESTUFF_NO_BANNER'):
         return
-    sys.stdout.write('\033[36m' + _BANNER + '\033[0m')
+    if os.name == 'nt':
+        try:
+            import ctypes
+            h = ctypes.windll.kernel32.GetStdHandle(-11)
+            mode = ctypes.c_uint32()
+            if ctypes.windll.kernel32.GetConsoleMode(h, ctypes.byref(mode)):
+                ctypes.windll.kernel32.SetConsoleMode(h, mode.value | 4)
+        except Exception:
+            pass
+    try:
+        if hasattr(sys.stdout, 'reconfigure'):
+            sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+    banner = _render_banner('FREE STUFF')
+    sys.stdout.write('\033[36m' + banner + '\033[0m\n')
     sys.stdout.flush()
     name = 'RAHUL CHANDRA'
     label = '  Developed by '
     for _ in range(12):
         line = '\r' + label
         for i, ch in enumerate(name):
-            color = 16 + (int(time.time() * 8) + i * 6) % 240
+            color = 16 + (int(time.time() * 8) + i * 7) % 240
             line += f'\033[38;5;{color}m{ch}\033[0m'
         sys.stdout.write(line)
         sys.stdout.flush()
