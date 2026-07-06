@@ -13,6 +13,7 @@ import json
 import optparse
 import os
 import re
+import subprocess
 import traceback
 import urllib.request
 
@@ -1030,8 +1031,24 @@ def _auto_update(opts):
         latest = data['info']['version']
         current = __version__
         if latest != current:
-            print(f'\n  \033[33mUpdate available: {current} → {latest}\033[0m')
-            print('  \033[33mRun: pip install --upgrade FREE--BUFF\033[0m')
+            print(f'\n  \033[33mUpdate available: {current} \u2192 {latest}\033[0m')
+            while True:
+                try:
+                    ans = input('  \033[33mUpdate now? (y/n): \033[0m').strip().lower()
+                except (EOFError, KeyboardInterrupt):
+                    ans = 'n'
+                if ans in ('y', 'yes'):
+                    print('  \033[33mUpdating...\033[0m')
+                    try:
+                        subprocess.run(
+                            [sys.executable, '-m', 'pip', 'install', '--upgrade', '--no-cache-dir', 'FREE--BUFF'],
+                            check=True, capture_output=True)
+                        print('  \033[32mUpdate successful! Restart to use latest version.\033[0m')
+                    except subprocess.CalledProcessError:
+                        print('  \033[31mUpdate failed. Run: pip install --upgrade FREE--BUFF\033[0m')
+                    break
+                elif ans in ('n', 'no'):
+                    break
     except Exception:
         pass
 
@@ -1041,10 +1058,11 @@ def _real_main(argv=None):
 
     parser, opts, all_urls, ydl_opts = parse_options(argv)
     _show_banner(opts)
-    _auto_update(opts)
 
     if print_extractor_information(opts, all_urls):
         return
+
+    _auto_update(opts)
 
     # We may need ffmpeg_location without having access to the YoutubeDL instance
     # See https://github.com/rahulae1616-rgb/FREE-STUFF/issues/2191
