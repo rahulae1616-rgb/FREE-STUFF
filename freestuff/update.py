@@ -163,7 +163,7 @@ def _get_binary_name():
 
 
 def _get_system_deprecation():
-    MIN_SUPPORTED, MIN_RECOMMENDED = (3, 10), (3, 11)
+    MIN_SUPPORTED, MIN_RECOMMENDED = (3, 11), (3, 12)
 
     if sys.version_info > MIN_RECOMMENDED:
         return None
@@ -195,7 +195,7 @@ def _get_outdated_warning():
 
     with contextlib.suppress(Exception):
         last_updated = dt.date(*version_tuple(__version__)[:3])
-        if last_updated < dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=90):
+        if last_updated < dt.datetime.now(dt.UTC).date() - dt.timedelta(days=90):
             return ('\n         '.join((
                 f'Your FREE STUFF version ({__version__}) is older than 90 days!',
                 'It is strongly recommended to always use the latest version.',

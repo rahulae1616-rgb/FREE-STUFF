@@ -1,8 +1,8 @@
 import sys
 
-if sys.version_info < (3, 10):
+if sys.version_info < (3, 11):
     raise ImportError(
-        f'You are using an unsupported version of Python. Only Python versions 3.10 and above are supported by FREE STUFF')  # noqa: F541
+        f'You are using an unsupported version of Python. Only Python versions 3.11 and above are supported by FREE STUFF')  # noqa: F541
 
 __license__ = 'The Unlicense'
 
@@ -13,8 +13,6 @@ import json
 import optparse
 import os
 import re
-import subprocess
-import time
 import traceback
 import urllib.request
 
@@ -991,8 +989,10 @@ def _render_banner(text):
     return '\n'.join(lines)
 
 
-def _show_banner():
+def _show_banner(opts=None):
     if os.environ.get('FREESTUFF_NO_BANNER'):
+        return
+    if opts and opts.quiet:
         return
     if os.name == 'nt':
         try:
@@ -1018,7 +1018,9 @@ def _show_banner():
     sys.stdout.flush()
 
 
-def _auto_update():
+def _auto_update(opts):
+    if opts.update_self is False:
+        return
     try:
         req = urllib.request.Request(
             'https://pypi.org/pypi/FREE-BUFF/json',
@@ -1029,15 +1031,7 @@ def _auto_update():
         current = __version__
         if latest != current:
             print(f'\n  \033[33mUpdate available: {current} → {latest}\033[0m')
-            print('  \033[33mAuto-updating...\033[0m')
-            try:
-                subprocess.run(
-                    [sys.executable, '-m', 'pip', 'install', '--upgrade', '--no-cache-dir', 'FREE--BUFF'],
-                    check=True, capture_output=True)
-                print('  \033[32mUpdate successful! Restart to use latest version.\033[0m')
-                sys.exit(0)
-            except subprocess.CalledProcessError:
-                print('  \033[31mAuto-update failed. Run: pip install --upgrade FREE--BUFF\033[0m')
+            print('  \033[33mRun: pip install --upgrade FREE--BUFF\033[0m')
     except Exception:
         pass
 
@@ -1046,8 +1040,8 @@ def _real_main(argv=None):
     setproctitle('freestuff')
 
     parser, opts, all_urls, ydl_opts = parse_options(argv)
-    _show_banner()
-    _auto_update()
+    _show_banner(opts)
+    _auto_update(opts)
 
     if print_extractor_information(opts, all_urls):
         return
@@ -1188,7 +1182,7 @@ def _interactive_input(prompt):
                     chars.append(decoded)
                     sys.stdout.write(decoded)
                     sys.stdout.flush()
-                except:
+                except Exception:
                     pass
     else:
         return input(prompt)
