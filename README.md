@@ -1,14 +1,6 @@
-```
-███████   ███████   ████████  ████████      ███████   ████████  █      █  ███████   ███████
-█         █     ██  █         █             █            █      █      █  █         █
-███████   ███████   ████████  ████████      ███████      █      █      █  ███████   ███████
-█         █  ██     █         █                    █     █      █      █  █         █
-█         █    ███  ████████  ████████      ███████      █       ██████   █         █
-```
+Git link: https://github.com/rahulae1616-rgb
 
-  **Developed by RAHUL CHANDRA**
-
-  **Paste URL:** https://github.com/rahulae1616-rgb/FREE-STUFF
+Paste URL: https://github.com/rahulae1616-rgb/FREE-STUFF
 
 <div align="center">
 
