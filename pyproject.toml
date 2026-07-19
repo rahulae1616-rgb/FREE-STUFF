@@ -37,7 +37,17 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dynamic = ["version"]
-dependencies = []
+dependencies = [
+    "brotli ; implementation_name == 'cpython' and sys_platform != 'ios'",
+    "brotlicffi ; implementation_name != 'cpython'",
+    "certifi",
+    "mutagen",
+    "pycryptodomex",
+    "requests>=2.32.2,<3",
+    "urllib3>=2.0.2,<3",
+    "websockets>=13.0",
+    "freestuff-ejs==0.8.0",
+]
 
 [project.optional-dependencies]
 default = [

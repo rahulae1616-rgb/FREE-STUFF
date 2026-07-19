@@ -14,6 +14,7 @@ import optparse
 import os
 import re
 import subprocess
+import time
 import traceback
 import urllib.request
 
@@ -1022,6 +1023,15 @@ def _show_banner(opts=None):
 def _auto_update(opts):
     if opts.update_self is False:
         return
+    # ponytail: daily cache to avoid 5s pypi.org block on every invocation
+    _cache_file = os.path.join(os.path.expanduser('~'), '.freestuff_update_cache')
+    try:
+        if os.path.exists(_cache_file):
+            mtime = os.path.getmtime(_cache_file)
+            if time.time() - mtime < 86400:
+                return
+    except Exception:
+        pass
     try:
         req = urllib.request.Request(
             'https://pypi.org/pypi/FREE-BUFF/json',
@@ -1030,6 +1040,11 @@ def _auto_update(opts):
             data = json.loads(r.read())
         latest = data['info']['version']
         current = __version__
+        try:
+            with open(_cache_file, 'w') as f:
+                f.write(latest)
+        except Exception:
+            pass
         if latest != current:
             print(f'\n  \033[33mUpdate available: {current} \u2192 {latest}\033[0m')
             while True:

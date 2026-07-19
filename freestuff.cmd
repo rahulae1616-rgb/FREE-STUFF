@@ -1,1 +1,1 @@
-@py -Werror -Xdev "%~dp0freestuff\__main__.py" %*
+@py "%~dp0freestuff\__main__.py" %*

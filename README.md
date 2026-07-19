@@ -9,7 +9,7 @@ Paste URL: https://github.com/rahulae1616-rgb/FREE-STUFF
 **A feature-rich command-line audio/video downloader for thousands of websites.**
 
 [![PyPI](https://img.shields.io/badge/PyPI-FREE--BUFF-blue?logo=pypi&logoColor=white)](https://pypi.org/project/FREE-BUFF/)
-[![Python](https://img.shields.io/badge/Python-%3E%3D3.10-blue?logo=python&logoColor=white)](pyproject.toml)
+[![Python](https://img.shields.io/badge/Python-%3E%3D3.11-blue?logo=python&logoColor=white)](pyproject.toml)
 [![GitHub](https://img.shields.io/badge/GitHub-rahulae1616--rgb%2FFREE--STUFF-181717?logo=github)](https://github.com/rahulae1616-rgb/FREE-STUFF)
 [![License](https://img.shields.io/badge/License-Unlicense-red)](LICENSE)
 
@@ -39,14 +39,15 @@ Then use it:
 freestuff "https://www.youtube.com/watch?v=..."
 ```
 
-### Windows (no Python needed)
+### Windows (automated)
 
-Download and run `install_freestuff.bat` from the repo — it sets up FREE STUFF globally without needing Python installed.
+Download and run `install_freestuff.bat` as Administrator from the repo — it installs FREE STUFF globally.
+Python 3.11+ is required (the script can install it for you if needed).
 
 ### Upgrade
 
 ```bash
-pip install --upgrade FREE--BUFF
+pip install --upgrade "FREE--BUFF[default]"
 ```
 
 ---
@@ -96,7 +97,7 @@ Major platforms include:
 
 ## Requirements
 
-- **Python 3.10+** (for pip install)
+- **Python 3.11+** (for pip install)
 - **ffmpeg** (recommended for merging audio/video and post-processing)
 
 ---
