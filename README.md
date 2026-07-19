@@ -1,9 +1,5 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/rahulae1616-rgb/FREE-STUFF/main/.github/banner.svg" width="100%" alt="FREE STUFF Banner">
-
-<br>
-
 [![PyPI](https://img.shields.io/badge/PyPI-FREE--BUFF-blue?logo=pypi&logoColor=white&style=for-the-badge)](https://pypi.org/project/FREE-BUFF/)
 [![Python](https://img.shields.io/badge/Python-%3E%3D3.11-3776AB?logo=python&logoColor=white&style=for-the-badge)](pyproject.toml)
 [![GitHub](https://img.shields.io/badge/GitHub-rahulae1616--rgb-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/rahulae1616-rgb/FREE-STUFF)
@@ -64,7 +60,7 @@
 
 **FREE STUFF** is a powerful command-line tool that downloads videos and audio from **YouTube**, **Twitter/X**, **TikTok**, **Twitch**, **Instagram**, **Facebook**, and **thousands of other websites** — all with a single command.
 
-A modern fork of `yt-dlp` (which is itself a fork of `youtube-dl`).
+Built with ❤️ for maximum compatibility — one tool to download from virtually anywhere.
 
 </div>
 
