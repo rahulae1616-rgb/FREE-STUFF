@@ -7,51 +7,153 @@
 
 <br>
 
-<!-- Animated SVG banner with moving gradient and pulsing elements -->
-<svg viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg" width="100%" height="120">
+<!-- Animated SVG banner — creative live moving banner -->
+<svg viewBox="0 0 800 140" xmlns="http://www.w3.org/2000/svg" width="100%" height="140">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00d2ff">
-        <animate attributeName="stop-color" values="#00d2ff;#3a7bd5;#00d2ff" dur="4s" repeatCount="indefinite"/>
+    <!-- Morphing gradient background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0c29">
+        <animate attributeName="stop-color" values="#0f0c29;#1a1a2e;#16213e;#0f0c29" dur="8s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" stop-color="#3a7bd5">
-        <animate attributeName="stop-color" values="#3a7bd5;#00d2ff;#3a7bd5" dur="4s" repeatCount="indefinite"/>
+      <stop offset="50%" stop-color="#302b63">
+        <animate attributeName="stop-color" values="#302b63;#16213e;#0f3460;#302b63" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#24243e">
+        <animate attributeName="stop-color" values="#24243e;#0f3460;#1a1a2e;#24243e" dur="8s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff6b6b" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ffa502" stop-opacity="0.3"/>
+    <!-- Rainbow sweep for text -->
+    <linearGradient id="textGrad" x1="-100%" y1="0%" x2="200%" y2="0%">
+      <stop offset="0%" stop-color="#ff6b6b">
+        <animate attributeName="offset" values="-1;2" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="20%" stop-color="#ffa502">
+        <animate attributeName="offset" values="-0.8;2.2" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="40%" stop-color="#2ed573">
+        <animate attributeName="offset" values="-0.6;2.4" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="60%" stop-color="#1e90ff">
+        <animate attributeName="offset" values="-0.4;2.6" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="80%" stop-color="#a29bfe">
+        <animate attributeName="offset" values="-0.2;2.8" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#fd79a8">
+        <animate attributeName="offset" values="0;3" dur="3s" repeatCount="indefinite"/>
+      </stop>
     </linearGradient>
+    <!-- Glow filter -->
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <!-- Soft glow -->
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Scanline pattern -->
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+    <!-- Star shape -->
+    <polygon id="star4" points="0,-6 1.5,-1.5 6,0 1.5,1.5 0,6 -1.5,1.5 -6,0 -1.5,-1.5" fill="white"/>
   </defs>
-  <rect width="800" height="120" rx="15" fill="url(#grad)"/>
-  <text x="400" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="32" font-weight="bold" filter="url(#glow)">FREE STUFF</text>
-  <text x="400" y="85" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Arial, sans-serif" font-size="16">Download Anything. From Anywhere. Free.</text>
-  <!-- Floating particles -->
-  <circle cx="100" cy="30" r="2" fill="white" opacity="0.6">
-    <animate attributeName="cy" values="30;20;30" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+
+  <!-- Background -->
+  <rect width="800" height="140" rx="15" fill="url(#bgGrad)"/>
+  <rect width="800" height="140" rx="15" fill="url(#scanlines)"/>
+
+  <!-- Animated decorative grid lines -->
+  <line x1="0" y1="70" x2="800" y2="70" stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <animate attributeName="y1" values="70;60;70" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="70;80;70" dur="4s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Orbiting ring -->
+  <ellipse cx="400" cy="70" rx="120" ry="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8" transform="rotate(0,400,70)">
+    <animateTransform attributeName="transform" type="rotate" values="0 400 70;360 400 70" dur="12s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Floating stars -->
+  <use href="#star4" x="80" y="30" opacity="0.6">
+    <animate attributeName="y" values="30;20;30" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.1;0.6" dur="3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="0 80 30;360 80 30" dur="6s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star4" x="200" y="100" opacity="0.4" transform="scale(0.7)">
+    <animate attributeName="y" values="100;90;100" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="0 200 100;360 200 100" dur="5s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star4" x="600" y="25" opacity="0.5">
+    <animate attributeName="y" values="25;15;25" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="0 600 25;360 600 25" dur="7s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star4" x="720" y="110" opacity="0.45" transform="scale(0.8)">
+    <animate attributeName="y" values="110;100;110" dur="2.8s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" values="0 720 110;360 720 110" dur="4.5s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star4" x="130" y="110" opacity="0.35" transform="scale(0.5)">
+    <animate attributeName="y" values="110;102;110" dur="4s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star4" x="680" y="35" opacity="0.3" transform="scale(0.6)">
+    <animate attributeName="y" values="35;27;35" dur="3.2s" repeatCount="indefinite"/>
+  </use>
+
+  <!-- Shooting star -->
+  <line x1="0" y1="0" x2="20" y2="20" stroke="white" stroke-width="0.8" opacity="0" stroke-linecap="round">
+    <animate attributeName="x1" values="0;800" dur="4s" repeatCount="indefinite" begin="0s"/>
+    <animate attributeName="y1" values="0;140" dur="4s" repeatCount="indefinite" begin="0s"/>
+    <animate attributeName="x2" values="20;820" dur="4s" repeatCount="indefinite" begin="0s"/>
+    <animate attributeName="y2" values="20;160" dur="4s" repeatCount="indefinite" begin="0s"/>
+    <animate attributeName="opacity" values="0;0.8;0" dur="4s" repeatCount="indefinite" begin="0s"/>
+  </line>
+  <line x1="0" y1="0" x2="20" y2="20" stroke="white" stroke-width="0.8" opacity="0" stroke-linecap="round">
+    <animate attributeName="x1" values="-100;700" dur="5s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="y1" values="-20;120" dur="5s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="x2" values="-80;720" dur="5s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="y2" values="0;140" dur="5s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="5s" repeatCount="indefinite" begin="2s"/>
+  </line>
+
+  <!-- Main title with rainbow sweep -->
+  <text x="400" y="58" text-anchor="middle" fill="url(#textGrad)" font-family="'Segoe UI', Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="3" filter="url(#glow)">FREE--STUFF</text>
+
+  <!-- Subtitle with pulse -->
+  <text x="400" y="85" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="'Segoe UI', Arial, sans-serif" font-size="15" letter-spacing="1">
+    Download Anything. From Anywhere. Free.
+    <animate attributeName="opacity" values="0.85;0.6;0.85" dur="3s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- Bottom accent line -->
+  <line x1="280" y1="105" x2="520" y2="105" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" stroke-linecap="round">
+    <animate attributeName="x1" values="280;320;280" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="520;480;520" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Corner decorative brackets -->
+  <text x="20" y="25" fill="rgba(255,255,255,0.15)" font-family="monospace" font-size="14">[</text>
+  <text x="770" y="125" fill="rgba(255,255,255,0.15)" font-family="monospace" font-size="14">]</text>
+
+  <!-- Pulsing outer rings -->
+  <circle cx="400" cy="70" r="55" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5">
+    <animate attributeName="r" values="55;65" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.08;0" dur="2.5s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="250" cy="90" r="1.5" fill="white" opacity="0.5">
-    <animate attributeName="cy" values="90;80;90" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="550" cy="25" r="2" fill="white" opacity="0.4">
-    <animate attributeName="cy" values="25;15;25" dur="3.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="700" cy="100" r="1.8" fill="white" opacity="0.5">
-    <animate attributeName="cy" values="100;90;100" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <!-- Pulsing ring -->
-  <circle cx="400" cy="60" r="50" fill="none" stroke="white" stroke-width="0.5" opacity="0">
-    <animate attributeName="r" values="50;60" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.3;0" dur="2s" repeatCount="indefinite"/>
+  <circle cx="400" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5">
+    <animate attributeName="r" values="60;70" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    <animate attributeName="opacity" values="0.05;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
   </circle>
 </svg>
 
