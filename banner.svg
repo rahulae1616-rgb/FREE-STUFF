@@ -35,15 +35,6 @@
       </stop>
     </linearGradient>
 
-    <!-- Subtle Sleek Text Glow Filter -->
-    <filter id="fsGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="1.5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
     <pattern id="fsGrid" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
     </pattern>
@@ -87,8 +78,8 @@
     <animate attributeName="opacity" values="0.1;0.4;0.1" dur="6s" repeatCount="indefinite"/>
   </line>
 
-  <!-- Main Animated Project Title -->
-  <text x="400" y="70" text-anchor="middle" fill="url(#fsTextGrad)" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="4" filter="url(#fsGlow)">
+  <!-- Main Animated Project Title (Glow Removed for 100% Crisp Text) -->
+  <text x="400" y="70" text-anchor="middle" fill="url(#fsTextGrad)" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="4">
     ⚡ FREE-STUFF ⚡
   </text>
 
