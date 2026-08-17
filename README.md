@@ -1,213 +1,188 @@
 <div align="center">
 
-[![PyPI](https://img.shields.io/badge/PyPI-FREE--BUFF-blue?logo=pypi&logoColor=white&style=for-the-badge)](https://pypi.org/project/FREE-BUFF/)
-[![Python](https://img.shields.io/badge/Python-%3E%3D3.11-3776AB?logo=python&logoColor=white&style=for-the-badge)](pyproject.toml)
-[![GitHub](https://img.shields.io/badge/GitHub-rahulae1616--rgb-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/rahulae1616-rgb/FREE-STUFF)
-[![License](https://img.shields.io/badge/License-Unlicense-red?logo=unlicense&style=for-the-badge)](LICENSE)
+<!-- Animated Shields & Badges -->
+<p align="center">
+  <a href="https://pypi.org/project/FREE-BUFF/">
+    <img src="https://img.shields.io/badge/PyPI-FREE--BUFF-3776AB?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI Package">
+  </a>
+  <a href="pyproject.toml">
+    <img src="https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python Version">
+  </a>
+  <a href="https://github.com/rahulae1616-rgb/FREE-STUFF">
+    <img src="https://img.shields.io/badge/GitHub-FREE--STUFF-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-Unlicense-red?style=for-the-badge&logo=unlicense&logoColor=white" alt="License">
+  </a>
+  <img src="https://img.shields.io/badge/Platforms-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen?style=for-the-badge&logo=linux&logoColor=white" alt="Platforms">
+</p>
 
 <br>
 
-<!-- Animated SVG banner — creative live moving banner -->
-<svg viewBox="0 0 800 140" xmlns="http://www.w3.org/2000/svg" width="100%" height="140">
+<!-- Stylish Animated SVG Title Banner -->
+<svg viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg" width="100%" height="160">
   <defs>
-    <!-- Morphing gradient background -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f0c29">
-        <animate attributeName="stop-color" values="#0f0c29;#1a1a2e;#16213e;#0f0c29" dur="8s" repeatCount="indefinite"/>
+    <!-- Background Gradient -->
+    <linearGradient id="fsBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a051b">
+        <animate attributeName="stop-color" values="#0a051b;#1a0a3a;#081b3b;#0a051b" dur="10s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="50%" stop-color="#302b63">
-        <animate attributeName="stop-color" values="#302b63;#16213e;#0f3460;#302b63" dur="8s" repeatCount="indefinite"/>
+      <stop offset="50%" stop-color="#1e0f45">
+        <animate attributeName="stop-color" values="#1e0f45;#0d2a4a;#2d0f5e;#1e0f45" dur="10s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" stop-color="#24243e">
-        <animate attributeName="stop-color" values="#24243e;#0f3460;#1a1a2e;#24243e" dur="8s" repeatCount="indefinite"/>
-      </stop>
-    </linearGradient>
-    <!-- Rainbow sweep for text -->
-    <linearGradient id="textGrad" x1="-100%" y1="0%" x2="200%" y2="0%">
-      <stop offset="0%" stop-color="#ff6b6b">
-        <animate attributeName="offset" values="-1;2" dur="3s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="20%" stop-color="#ffa502">
-        <animate attributeName="offset" values="-0.8;2.2" dur="3s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="40%" stop-color="#2ed573">
-        <animate attributeName="offset" values="-0.6;2.4" dur="3s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="60%" stop-color="#1e90ff">
-        <animate attributeName="offset" values="-0.4;2.6" dur="3s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="80%" stop-color="#a29bfe">
-        <animate attributeName="offset" values="-0.2;2.8" dur="3s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#fd79a8">
-        <animate attributeName="offset" values="0;3" dur="3s" repeatCount="indefinite"/>
+      <stop offset="100%" stop-color="#07152b">
+        <animate attributeName="stop-color" values="#07152b;#25073f;#07152b" dur="10s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
-    <!-- Glow filter -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+
+    <!-- Animated Shimmer Text Gradient -->
+    <linearGradient id="fsTextGrad" x1="-100%" y1="0%" x2="200%" y2="0%">
+      <stop offset="0%" stop-color="#ff416c">
+        <animate attributeName="offset" values="-1;2" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="20%" stop-color="#ff4b2b">
+        <animate attributeName="offset" values="-0.8;2.2" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="40%" stop-color="#f7b731">
+        <animate attributeName="offset" values="-0.6;2.4" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="60%" stop-color="#20bf6b">
+        <animate attributeName="offset" values="-0.4;2.6" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="80%" stop-color="#0fbcf9">
+        <animate attributeName="offset" values="-0.2;2.8" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#a55eea">
+        <animate attributeName="offset" values="0;3" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Neon Glow Filter -->
+    <filter id="fsGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <!-- Soft glow -->
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <!-- Scanline pattern -->
-    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="0" x2="4" y2="0" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+    <pattern id="fsGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
     </pattern>
-    <!-- Star shape -->
-    <polygon id="star4" points="0,-6 1.5,-1.5 6,0 1.5,1.5 0,6 -1.5,1.5 -6,0 -1.5,-1.5" fill="white"/>
+
+    <!-- Floating Star Shape -->
+    <polygon id="fsStar" points="0,-5 1.5,-1.5 5,0 1.5,1.5 0,5 -1.5,1.5 -5,0 -1.5,-1.5" fill="#ffffff"/>
   </defs>
 
-  <!-- Background -->
-  <rect width="800" height="140" rx="15" fill="url(#bgGrad)"/>
-  <rect width="800" height="140" rx="15" fill="url(#scanlines)"/>
+  <!-- Card Frame -->
+  <rect width="800" height="160" rx="16" fill="url(#fsBgGrad)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+  <rect width="800" height="160" rx="16" fill="url(#fsGrid)"/>
 
-  <!-- Animated decorative grid lines -->
-  <line x1="0" y1="70" x2="800" y2="70" stroke="rgba(255,255,255,0.04)" stroke-width="1">
-    <animate attributeName="y1" values="70;60;70" dur="4s" repeatCount="indefinite"/>
-    <animate attributeName="y2" values="70;80;70" dur="4s" repeatCount="indefinite"/>
-  </line>
-
-  <!-- Orbiting ring -->
-  <ellipse cx="400" cy="70" rx="120" ry="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8" transform="rotate(0,400,70)">
-    <animateTransform attributeName="transform" type="rotate" values="0 400 70;360 400 70" dur="12s" repeatCount="indefinite"/>
+  <!-- Orbital Rotating Ring -->
+  <ellipse cx="400" cy="80" rx="220" ry="40" fill="none" stroke="rgba(15, 188, 249, 0.25)" stroke-width="1.5" stroke-dasharray="8 6">
+    <animateTransform attributeName="transform" type="rotate" values="0 400 80;360 400 80" dur="20s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="400" cy="80" rx="180" ry="32" fill="none" stroke="rgba(255, 65, 108, 0.2)" stroke-width="1" stroke-dasharray="5 5">
+    <animateTransform attributeName="transform" type="rotate" values="360 400 80;0 400 80" dur="15s" repeatCount="indefinite"/>
   </ellipse>
 
-  <!-- Floating stars -->
-  <use href="#star4" x="80" y="30" opacity="0.6">
-    <animate attributeName="y" values="30;20;30" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0.1;0.6" dur="3s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="rotate" values="0 80 30;360 80 30" dur="6s" repeatCount="indefinite"/>
+  <!-- Floating Particles & Stars -->
+  <use href="#fsStar" x="120" y="35" opacity="0.8">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="35;25;35" dur="3s" repeatCount="indefinite"/>
   </use>
-  <use href="#star4" x="200" y="100" opacity="0.4" transform="scale(0.7)">
-    <animate attributeName="y" values="100;90;100" dur="2.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="rotate" values="0 200 100;360 200 100" dur="5s" repeatCount="indefinite"/>
+  <use href="#fsStar" x="680" y="40" opacity="0.7">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="40;50;40" dur="2.5s" repeatCount="indefinite"/>
   </use>
-  <use href="#star4" x="600" y="25" opacity="0.5">
-    <animate attributeName="y" values="25;15;25" dur="3.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="rotate" values="0 600 25;360 600 25" dur="7s" repeatCount="indefinite"/>
+  <use href="#fsStar" x="220" y="125" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="4s" repeatCount="indefinite"/>
   </use>
-  <use href="#star4" x="720" y="110" opacity="0.45" transform="scale(0.8)">
-    <animate attributeName="y" values="110;100;110" dur="2.8s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="rotate" values="0 720 110;360 720 110" dur="4.5s" repeatCount="indefinite"/>
-  </use>
-  <use href="#star4" x="130" y="110" opacity="0.35" transform="scale(0.5)">
-    <animate attributeName="y" values="110;102;110" dur="4s" repeatCount="indefinite"/>
-  </use>
-  <use href="#star4" x="680" y="35" opacity="0.3" transform="scale(0.6)">
-    <animate attributeName="y" values="35;27;35" dur="3.2s" repeatCount="indefinite"/>
+  <use href="#fsStar" x="590" y="120" opacity="0.5">
+    <animate attributeName="opacity" values="0.9;0.1;0.9" dur="3.5s" repeatCount="indefinite"/>
   </use>
 
-  <!-- Shooting star -->
-  <line x1="0" y1="0" x2="20" y2="20" stroke="white" stroke-width="0.8" opacity="0" stroke-linecap="round">
-    <animate attributeName="x1" values="0;800" dur="4s" repeatCount="indefinite" begin="0s"/>
-    <animate attributeName="y1" values="0;140" dur="4s" repeatCount="indefinite" begin="0s"/>
-    <animate attributeName="x2" values="20;820" dur="4s" repeatCount="indefinite" begin="0s"/>
-    <animate attributeName="y2" values="20;160" dur="4s" repeatCount="indefinite" begin="0s"/>
-    <animate attributeName="opacity" values="0;0.8;0" dur="4s" repeatCount="indefinite" begin="0s"/>
-  </line>
-  <line x1="0" y1="0" x2="20" y2="20" stroke="white" stroke-width="0.8" opacity="0" stroke-linecap="round">
-    <animate attributeName="x1" values="-100;700" dur="5s" repeatCount="indefinite" begin="2s"/>
-    <animate attributeName="y1" values="-20;120" dur="5s" repeatCount="indefinite" begin="2s"/>
-    <animate attributeName="x2" values="-80;720" dur="5s" repeatCount="indefinite" begin="2s"/>
-    <animate attributeName="y2" values="0;140" dur="5s" repeatCount="indefinite" begin="2s"/>
-    <animate attributeName="opacity" values="0;0.6;0" dur="5s" repeatCount="indefinite" begin="2s"/>
+  <!-- Laser Beam Scanning Line -->
+  <line x1="0" y1="80" x2="800" y2="80" stroke="url(#fsTextGrad)" stroke-width="1" opacity="0.3">
+    <animate attributeName="y1" values="20;140;20" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="20;140;20" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="6s" repeatCount="indefinite"/>
   </line>
 
-  <!-- Main title with rainbow sweep -->
-  <text x="400" y="58" text-anchor="middle" fill="url(#textGrad)" font-family="'Segoe UI', Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="3" filter="url(#glow)">FREE--STUFF</text>
-
-  <!-- Subtitle with pulse -->
-  <text x="400" y="85" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="'Segoe UI', Arial, sans-serif" font-size="15" letter-spacing="1">
-    Download Anything. From Anywhere. Free.
-    <animate attributeName="opacity" values="0.85;0.6;0.85" dur="3s" repeatCount="indefinite"/>
+  <!-- Main Animated Project Title -->
+  <text x="400" y="70" text-anchor="middle" fill="url(#fsTextGrad)" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="4" filter="url(#fsGlow)">
+    ⚡ FREE-STUFF ⚡
   </text>
 
-  <!-- Bottom accent line -->
-  <line x1="280" y1="105" x2="520" y2="105" stroke="rgba(255,255,255,0.2)" stroke-width="0.5" stroke-linecap="round">
-    <animate attributeName="x1" values="280;320;280" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="x2" values="520;480;520" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
-  </line>
+  <!-- Subtitle -->
+  <text x="400" y="105" text-anchor="middle" fill="#e0e0e0" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="16" font-weight="600" letter-spacing="1.5">
+    Download Anything. From Anywhere. 100% Free.
+    <animate attributeName="opacity" values="1;0.65;1" dur="3.5s" repeatCount="indefinite"/>
+  </text>
 
-  <!-- Corner decorative brackets -->
-  <text x="20" y="25" fill="rgba(255,255,255,0.15)" font-family="monospace" font-size="14">[</text>
-  <text x="770" y="125" fill="rgba(255,255,255,0.15)" font-family="monospace" font-size="14">]</text>
-
-  <!-- Pulsing outer rings -->
-  <circle cx="400" cy="70" r="55" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5">
-    <animate attributeName="r" values="55;65" dur="2.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.08;0" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="400" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5">
-    <animate attributeName="r" values="60;70" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-    <animate attributeName="opacity" values="0.05;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-  </circle>
+  <!-- Bottom Interactive Pulsing Bar -->
+  <rect x="250" y="125" width="300" height="3" rx="1.5" fill="url(#fsTextGrad)">
+    <animate attributeName="width" values="200;360;200" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="300;220;300" dur="4s" repeatCount="indefinite"/>
+  </rect>
 </svg>
 
 <br>
 <br>
 
-**FREE STUFF** is a powerful command-line tool that downloads videos and audio from **YouTube**, **Twitter/X**, **TikTok**, **Twitch**, **Instagram**, **Facebook**, and **thousands of other websites** — all with a single command.
-
-Built with ❤️ for maximum compatibility — one tool to download from virtually anywhere.
+> 🚀 **FREE STUFF** (`FREE-BUFF`) is an ultra-powerful command-line media extractor that lets you download video and audio streams from **YouTube, Twitter/X, TikTok, Twitch, Instagram, Facebook, Reddit, SoundCloud**, and over **1,500+ other platforms** — all in maximum quality with zero ads!
 
 </div>
 
 ---
 
-## ✨ Installation
+## ✨ Features At A Glance
 
-### 1. **One-Click Install (Worldwide)**
+- 🎬 **Universal Extraction:** Video & Audio support for 1500+ websites worldwide.
+- ⚡ **High Performance:** Multi-threaded fast downloading powered by `requests`, `websockets`, and `brotli`.
+- 🎵 **Audio Converter:** Extract audio automatically and transcode to high-quality MP3, AAC, FLAC, or WAV.
+- 📺 **4K / 8K & HDR:** Full support for high-resolution video streams and high FPS merging.
+- 📑 **Playlist & Batch Downloads:** Grab full YouTube playlists, channel videos, or multi-part media in one go.
+- 🛡️ **Bypass Restrictions:** Native support for AES decryption (`pycryptodomex`) and EJS extraction.
 
-The fastest way — works on any OS with Python installed:
+---
+
+## 💻 Installation
+
+### 1. **One-Click Pip Install (Cross-Platform)**
+
+Works out of the box on Windows, macOS, and Linux:
 
 ```bash
 pip install FREE--BUFF
 ```
 
 <details>
-<summary><b>📦 What gets installed?</b></summary>
+<summary><b>📦 Core Dependencies Included</b></summary>
 
-| Package | Purpose |
-|---------|---------|
-| `requests` + `urllib3` | Lightning-fast HTTP downloads |
-| `websockets` | Live-stream and real-time extraction |
-| `certifi` | Secure SSL certificate verification |
-| `pycryptodomex` | AES decryption for protected streams |
-| `mutagen` | Metadata tagging on audio files |
-| `brotli` / `brotlicffi` | Faster compressed downloads |
-| `freestuff-ejs` | Advanced YouTube extractor support |
+| Package | Role |
+| :--- | :--- |
+| `requests` + `urllib3` | Fast HTTP network requests |
+| `websockets` | Real-time live-stream extraction |
+| `pycryptodomex` | AES stream decryption |
+| `mutagen` | Automatic ID3 audio tag metadata |
+| `brotli` / `brotlicffi` | Ultra-fast HTTP response decompression |
+| `freestuff-ejs` | EJS JavaScript engine for YouTube decryptors |
 
 </details>
 
 <br>
 
-### 2. **Windows (Automated Setup)**
+### 2. **Windows Automated Setup Script**
 
 <details open>
-<summary><b>🪟 Click to expand Windows instructions</b></summary>
+<summary><b>🪟 Automated Batch Setup</b></summary>
 
-1. **Download** [`install_freestuff.bat`](install_freestuff.bat) from this repo
-2. **Right-click** the file → **"Run as Administrator"**
-3. **Sit back** — the script will:
-   - ✅ Check if Python 3.11+ is installed
-   - ✅ Offer to install Python automatically via winget (if missing)
-   - ✅ Install FREE STUFF with all dependencies via pip
-   - ✅ Add `freestuff` to your system PATH
-4. **Open a new Command Prompt** and type:
+1. Download [`install_freestuff.bat`](install_freestuff.bat) from this repository.
+2. Right-click [`install_freestuff.bat`](install_freestuff.bat) and click **"Run as Administrator"**.
+3. The script will automatically verify Python 3.11+, configure your environment, install `FREE-BUFF`, and add `freestuff` to your global `PATH`!
+4. Open Command Prompt and type:
    ```cmd
    freestuff "https://www.youtube.com/watch?v=..."
    ```
@@ -216,167 +191,83 @@ pip install FREE--BUFF
 
 <br>
 
-### 3. **Upgrade to Latest**
+### 3. **Upgrade to Latest Version**
 
 ```bash
 pip install --upgrade "FREE--BUFF[default]"
 ```
 
-Or if you want the absolute bleeding edge (includes `curl-cffi` for browser impersonation):
-
+For advanced browser impersonation:
 ```bash
 pip install --upgrade "FREE--BUFF[default,curl-cffi]"
 ```
 
 ---
 
-## 🚀 Quick Start
+## ⚡ Quick Start & Usage
 
-### 🎬 Download a video (best quality)
-
+### 🎬 Download Highest Quality Video
 ```bash
 freestuff "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ```
 
-### 🎵 Download audio only (MP3)
-
+### 🎵 Extract Audio Only (MP3)
 ```bash
 freestuff -x --audio-format mp3 "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ```
 
-### 📋 List all available formats
-
+### 📋 List All Available Formats
 ```bash
 freestuff -F "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ```
 
-### 🎯 Download a specific quality
-
+### 🎯 Custom Format Selection (e.g., 1080p Video + Audio)
 ```bash
-# 1080p video + best audio merged
 freestuff -f 137+140 "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ```
 
-### 📑 Download an entire playlist
-
+### 📑 Download Entire Playlist
 ```bash
 freestuff "https://www.youtube.com/playlist?list=PL..."
 ```
 
-### 🏷️ Custom filename
+---
 
-```bash
-freestuff -o "%(title)s.%(ext)s" "https://www.youtube.com/watch?v=..."
-```
+## 🌐 Supported Sites (Summary)
+
+| Platform | Type | Status |
+| :--- | :--- | :--- |
+| **YouTube & YouTube Music** | 🎬 Video / 🎵 Audio | ✅ Supported |
+| **Twitter / X** | 🐦 Tweets & Videos | ✅ Supported |
+| **TikTok** | 📱 Short Videos | ✅ Supported |
+| **Twitch** | 🎮 Clips & VODs | ✅ Supported |
+| **Instagram** | 📸 Reels & Posts | ✅ Supported |
+| **Facebook** | 👥 Videos & Watch | ✅ Supported |
+| **SoundCloud & Bandcamp** | 🎧 Music Tracks | ✅ Supported |
+| **1,500+ More Platforms** | 🌍 Global Media | ✅ Supported |
+
+*See full list in [`supportedsites.md`](supportedsites.md).*
 
 ---
 
-## 🌐 Supported Sites
+## 📋 System Requirements
 
-FREE STUFF supports **thousands of websites** — see the complete list in [`supportedsites.md`](supportedsites.md).
-
-<div align="center">
-
-| Platform | Type | Works? |
-|----------|------|--------|
-| **YouTube** & YouTube Music | 🎬 Video | ✅ Full support |
-| **Twitter / X** | 🐦 Social | ✅ Full support |
-| **TikTok** | 📱 Shorts | ✅ Full support |
-| **Twitch** | 🎮 Live/ VOD | ✅ Full support |
-| **Instagram** | 📸 Social | ✅ Full support |
-| **Facebook** | 👥 Social | ✅ Full support |
-| **Vimeo** | 🎥 Video | ✅ Full support |
-| **SoundCloud** | 🎧 Audio | ✅ Full support |
-| **Bandcamp** | 🎸 Music | ✅ Full support |
-| **Reddit** | 💬 Social | ✅ Full support |
-| — | — | — |
-| **1500+ more** | 🌍 Various | ✅ Works |
-
-</div>
+| Tool | Recommended Version |
+| :--- | :--- |
+| **Python** | 3.11 or higher |
+| **ffmpeg** | Latest stable release (required for video/audio merging & conversion) |
+| **OS** | Windows 10/11, macOS 12+, Linux (Ubuntu/Debian/Fedora/Arch) |
 
 ---
 
-## 📋 Requirements
-
-| Requirement | Version | Notes |
-|-------------|---------|-------|
-| 🐍 **Python** | **3.11+** | 3.12 or 3.13 recommended for best performance |
-| 🎞️ **ffmpeg** | Latest | Required for audio extraction, video merging, thumbnail embedding |
-| 🐧 **OS** | Windows / macOS / Linux | Fully cross-platform |
-
-### Installing ffmpeg
-
-| OS | Command |
-|----|---------|
-| **Windows** | `winget install ffmpeg` or download from [ffmpeg.org](https://ffmpeg.org/) |
-| **macOS** | `brew install ffmpeg` |
-| **Ubuntu/Debian** | `sudo apt install ffmpeg` |
-| **Fedora** | `sudo dnf install ffmpeg` |
-
----
-
-## 💡 Tips & Tricks
-
-<details>
-<summary><b>📌 Common patterns</b></summary>
-
-```bash
-# Download subtitles
-freestuff --write-subs --sub-lang en "URL"
-
-# Download only from a specific date range
-freestuff --dateafter 20240101 "playlist URL"
-
-# Limit download speed
-freestuff --limit-rate 5M "URL"
-
-# Download only the audio and convert to MP3 (192kbps)
-freestuff -x --audio-format mp3 --audio-quality 192K "URL"
-
-# Embed thumbnail into the output file
-freestuff --embed-thumbnail "URL"
-```
-
-</details>
-
-<details>
-<summary><b>⚙️ Advanced configuration</b></summary>
-
-Create `freestuff.conf` in one of these locations:
-
-- **Linux:** `~/.config/freestuff/config`
-- **macOS:** `~/Library/Application Support/freestuff/config`
-- **Windows:** `%APPDATA%\freestuff\config`
-
-Example config:
-
-```ini
-# Always download best quality
--f bestvideo+bestaudio/best
-
-# Always merge using ffmpeg
---merge-output-format mkv
-
-# Limit to 10MB/s
---limit-rate 10M
-```
-
-</details>
-
----
-
-## 👨‍💻 Author
+## 👨‍💻 Author & Maintainer
 
 **RAHUL CHANDRA**
-
-| Link | URL |
-|------|-----|
-| 🐙 **GitHub** | [github.com/rahulae1616-rgb](https://github.com/rahulae1616-rgb) |
-| 🐍 **PyPI Project** | [FREE--BUFF](https://pypi.org/project/FREE-BUFF/) |
-| 🐛 **Report Issue** | [GitHub Issues](https://github.com/rahulae1616-rgb/FREE-STUFF/issues) |
+- 🐙 **GitHub:** [@rahulae1616-rgb](https://github.com/rahulae1616-rgb)
+- 🐍 **PyPI:** [FREE--BUFF](https://pypi.org/project/FREE-BUFF/)
 
 ---
 
 ## 📜 License
 
-[**Unlicense**](LICENSE) — Public domain. Do whatever you want. Free as in freedom.
+Distributed under the [**Unlicense**](LICENSE) — Public Domain Software.
