@@ -5,30 +5,27 @@
       <stop offset="0%" stop-color="#0a051b">
         <animate attributeName="stop-color" values="#0a051b;#1a0a3a;#081b3b;#0a051b" dur="10s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="50%" stop-color="#1e0f45">
-        <animate attributeName="stop-color" values="#1e0f45;#0d2a4a;#2d0f5e;#1e0f45" dur="10s" repeatCount="indefinite"/>
+      <stop offset="50%" stop-color="#160c33">
+        <animate attributeName="stop-color" values="#160c33;#0d2a4a;#230c45;#160c33" dur="10s" repeatCount="indefinite"/>
       </stop>
       <stop offset="100%" stop-color="#07152b">
         <animate attributeName="stop-color" values="#07152b;#25073f;#07152b" dur="10s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
 
-    <!-- Animated Shimmer Text Gradient -->
+    <!-- Crisp Text Gradient -->
     <linearGradient id="fsTextGrad" x1="-100%" y1="0%" x2="200%" y2="0%">
       <stop offset="0%" stop-color="#ff416c">
         <animate attributeName="offset" values="-1;2" dur="4s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="20%" stop-color="#ff4b2b">
-        <animate attributeName="offset" values="-0.8;2.2" dur="4s" repeatCount="indefinite"/>
+      <stop offset="25%" stop-color="#ff4b2b">
+        <animate attributeName="offset" values="-0.75;2.25" dur="4s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="40%" stop-color="#f7b731">
-        <animate attributeName="offset" values="-0.6;2.4" dur="4s" repeatCount="indefinite"/>
+      <stop offset="50%" stop-color="#f7b731">
+        <animate attributeName="offset" values="-0.5;2.5" dur="4s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="60%" stop-color="#20bf6b">
-        <animate attributeName="offset" values="-0.4;2.6" dur="4s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="80%" stop-color="#0fbcf9">
-        <animate attributeName="offset" values="-0.2;2.8" dur="4s" repeatCount="indefinite"/>
+      <stop offset="75%" stop-color="#0fbcf9">
+        <animate attributeName="offset" values="-0.25;2.75" dur="4s" repeatCount="indefinite"/>
       </stop>
       <stop offset="100%" stop-color="#a55eea">
         <animate attributeName="offset" values="0;3" dur="4s" repeatCount="indefinite"/>
@@ -36,62 +33,33 @@
     </linearGradient>
 
     <pattern id="fsGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
     </pattern>
 
     <!-- Floating Star Shape -->
-    <polygon id="fsStar" points="0,-5 1.5,-1.5 5,0 1.5,1.5 0,5 -1.5,1.5 -5,0 -1.5,-1.5" fill="#ffffff"/>
+    <polygon id="fsStar" points="0,-4 1,-1 4,0 1,1 0,4 -1,1 -4,0 -1,-1" fill="#ffffff"/>
   </defs>
 
   <!-- Card Frame -->
   <rect width="800" height="160" rx="16" fill="url(#fsBgGrad)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
   <rect width="800" height="160" rx="16" fill="url(#fsGrid)"/>
 
-  <!-- Orbital Rotating Ring -->
-  <ellipse cx="400" cy="80" rx="220" ry="40" fill="none" stroke="rgba(15, 188, 249, 0.25)" stroke-width="1.5" stroke-dasharray="8 6">
-    <animateTransform attributeName="transform" type="rotate" values="0 400 80;360 400 80" dur="20s" repeatCount="indefinite"/>
-  </ellipse>
-  <ellipse cx="400" cy="80" rx="180" ry="32" fill="none" stroke="rgba(255, 65, 108, 0.2)" stroke-width="1" stroke-dasharray="5 5">
-    <animateTransform attributeName="transform" type="rotate" values="360 400 80;0 400 80" dur="15s" repeatCount="indefinite"/>
-  </ellipse>
+  <!-- Subtle Corner Stars -->
+  <use href="#fsStar" x="100" y="30" opacity="0.6"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/></use>
+  <use href="#fsStar" x="700" y="35" opacity="0.6"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite"/></use>
+  <use href="#fsStar" x="120" y="130" opacity="0.5"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/></use>
+  <use href="#fsStar" x="680" y="125" opacity="0.5"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.5s" repeatCount="indefinite"/></use>
 
-  <!-- Floating Particles & Stars -->
-  <use href="#fsStar" x="120" y="35" opacity="0.8">
-    <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="y" values="35;25;35" dur="3s" repeatCount="indefinite"/>
-  </use>
-  <use href="#fsStar" x="680" y="40" opacity="0.7">
-    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite"/>
-    <animate attributeName="y" values="40;50;40" dur="2.5s" repeatCount="indefinite"/>
-  </use>
-  <use href="#fsStar" x="220" y="125" opacity="0.6">
-    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="4s" repeatCount="indefinite"/>
-  </use>
-  <use href="#fsStar" x="590" y="120" opacity="0.5">
-    <animate attributeName="opacity" values="0.9;0.1;0.9" dur="3.5s" repeatCount="indefinite"/>
-  </use>
-
-  <!-- Laser Beam Scanning Line -->
-  <line x1="0" y1="80" x2="800" y2="80" stroke="url(#fsTextGrad)" stroke-width="1" opacity="0.3">
-    <animate attributeName="y1" values="20;140;20" dur="6s" repeatCount="indefinite"/>
-    <animate attributeName="y2" values="20;140;20" dur="6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="6s" repeatCount="indefinite"/>
-  </line>
-
-  <!-- Main Animated Project Title (Glow Removed for 100% Crisp Text) -->
-  <text x="400" y="70" text-anchor="middle" fill="url(#fsTextGrad)" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="4">
+  <!-- 100% Crisp Title Text with Zero Glow Filter -->
+  <text x="400" y="72" text-anchor="middle" fill="url(#fsTextGrad)" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="4">
     ⚡ FREE-STUFF ⚡
   </text>
 
-  <!-- Subtitle -->
-  <text x="400" y="105" text-anchor="middle" fill="#e0e0e0" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="16" font-weight="600" letter-spacing="1.5">
+  <!-- Crisp Subtitle -->
+  <text x="400" y="105" text-anchor="middle" fill="#ffffff" font-family="'Segoe UI', Ubuntu, Roboto, sans-serif" font-size="16" font-weight="600" letter-spacing="1.5" opacity="0.9">
     Download Anything. From Anywhere. 100% Free.
-    <animate attributeName="opacity" values="1;0.65;1" dur="3.5s" repeatCount="indefinite"/>
   </text>
 
-  <!-- Bottom Interactive Pulsing Bar -->
-  <rect x="250" y="125" width="300" height="3" rx="1.5" fill="url(#fsTextGrad)">
-    <animate attributeName="width" values="200;360;200" dur="4s" repeatCount="indefinite"/>
-    <animate attributeName="x" values="300;220;300" dur="4s" repeatCount="indefinite"/>
-  </rect>
+  <!-- Bottom Accent Bar -->
+  <rect x="260" y="124" width="280" height="3" rx="1.5" fill="url(#fsTextGrad)"/>
 </svg>

@@ -21,7 +21,7 @@
 
 <!-- Live Animated Title Banner Image -->
 <a href="https://github.com/rahulae1616-rgb/FREE-STUFF">
-  <img src="./banner.svg" width="100%" alt="FREE-STUFF Animated Banner">
+  <img src="./banner.svg?v=3" width="100%" alt="FREE-STUFF Animated Banner">
 </a>
 
 <br>
